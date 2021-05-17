@@ -6,7 +6,7 @@
     private $name;
     private $surname;
     private $date_of_birth;
-    private $account_type;
+    private $account_type = 'basic';
     private $products = [];
 
     public function __construct($username,$password,$name,$surname,$date_of_birth,$account_type) {
@@ -65,6 +65,28 @@
 
     public function getAccountType() {
       return $this->account_type;
+    }
+  }
+
+  class PremiumUser extends User {
+    private $account_type = 'premium';
+    private $discount_access = true;
+    private $free_shipping = true;
+
+    public function setDiscountAccess($discount_access) {
+      $this->discount_access = $discount_access;
+    }
+
+    public function getDiscountAccess() {
+      return $this->discount_access;
+    }
+
+    public function setFreeShipping($free_shipping) {
+      $this->free_shipping = $free_shipping;
+    }
+
+    public function getFreeShipping() {
+      return $this->free_shipping;
     }
 
   }
