@@ -6,13 +6,15 @@
     private $brand;
     private $price;
     private $discount;
+    private $availability;
 
-    public function __construct($name,$category,$brand,$price,$discount) {
+    public function __construct($name,$category,$brand,$price,$discount,$availability) {
       $this->name = $name;
       $this->category = $category;
       $this->brand = $brand;
       $this->price = $price;
       $this->discount = $discount;
+      $this->availability = $availability;
     }
 
     public function setName($name) {
@@ -30,7 +32,7 @@
     public function getCategory() {
       return $this->category;
     }
-    
+
     public function setBrand($brand) {
       $this->brand = $brand;
     }
@@ -55,6 +57,47 @@
       return $this->discount;
     }
 
+    public function setAvailability($availability) {
+      $this->availability = $availability;
+    }
+
+    public function getAvailability() {
+      return $this->availability;
+    }
   }
+
+  class Shoes extends Product {
+    public $category = 'shoes';
+    public $size;
+    public $color;
+
+    public function __construct($name,$category,$brand,$price,$discount,$availability,$size,$color) {
+      $this->name = $name;
+      $this->category = $category;
+      $this->brand = $brand;
+      $this->price = $price;
+      $this->discount = $discount;
+      $this->availability = $availability;
+      $this->size = $size;
+      $this->color = $color;
+    }
+
+    public function setSize($size) {
+      $this->size = $size;
+    }
+
+    public function getSize() {
+      return $this->size;
+    }
+
+    public function setColor($color) {
+      $this->color = $color;
+    }
+
+    public function getColor() {
+      return $this->color;
+    }
+  }
+
 
  ?>

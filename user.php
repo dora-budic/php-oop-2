@@ -18,7 +18,6 @@
       $this->account_type = $account_type;
     }
 
-
     public function setUsername($username) {
       $this->username = $username;
     }
@@ -73,6 +72,17 @@
     private $discount_access = true;
     private $free_shipping = true;
 
+    public function __construct($username,$password,$name,$surname,$date_of_birth,$account_type,$discount_access,$free_shipping) {
+      $this->username = $username;
+      $this->password = $password;
+      $this->name = $name;
+      $this->surname = $surname;
+      $this->date_of_birth = $date_of_birth;
+      $this->account_type = $account_type;
+      $this->discount_access = $discount_access;
+      $this->free_shipping = $free_shipping;
+    }
+
     public function setDiscountAccess($discount_access) {
       $this->discount_access = $discount_access;
     }
@@ -88,7 +98,6 @@
     public function getFreeShipping() {
       return $this->free_shipping;
     }
-
   }
 
  ?>
