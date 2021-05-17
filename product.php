@@ -5,8 +5,8 @@
     public $category;
     private $brand;
     private $price;
-    private $discount;
-    private $availability;
+    public $discount;
+    public $availability;
 
     public function __construct($name,$category,$brand,$price,$discount,$availability) {
       $this->name = $name;
@@ -71,11 +71,10 @@
     public $size;
     public $color;
 
-    public function __construct($name,$category,$brand,$price,$discount,$availability,$size,$color) {
-      $this->name = $name;
-      $this->category = $category;
-      $this->brand = $brand;
-      $this->price = $price;
+    public function __construct($name,$brand,$price,$discount,$availability,$size,$color) {
+      $this->setname($name);
+      $this->setbrand($brand);
+      $this->setPrice($price);
       $this->discount = $discount;
       $this->availability = $availability;
       $this->size = $size;

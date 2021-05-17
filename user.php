@@ -1,7 +1,6 @@
 <?php
 
-  require_once './creditCard.php'
-
+  require_once './creditCard.php';
 
   class User {
     use CreditCard;
@@ -14,13 +13,12 @@
     private $account_type = 'basic';
     private $products = [];
 
-    public function __construct($username,$password,$name,$surname,$date_of_birth,$account_type,$card_number,$expiration_date,$cvc) {
+    public function __construct($username,$password,$name,$surname,$date_of_birth,$card_number,$expiration_date,$cvc) {
       $this->username = $username;
       $this->password = $password;
       $this->name = $name;
       $this->surname = $surname;
       $this->date_of_birth = $date_of_birth;
-      $this->account_type = $account_type;
       $this->setCardNumber($card_number);
       $this->setExpirationDate($expiration_date);
       $this->setCvc($cvc);
@@ -73,23 +71,21 @@
     public function getAccountType() {
       return $this->account_type;
     }
+
+    public function insertProduct($product)
+    {
+      $this->products[] = $product;
+    }
+    public function getFatture()
+    {
+      return $this->products;
+    }
   }
 
   class PremiumUser extends User {
     private $account_type = 'premium';
     private $discount_access = true;
     private $free_shipping = true;
-
-    public function __construct($username,$password,$name,$surname,$date_of_birth,$account_type,$discount_access,$free_shipping) {
-      $this->username = $username;
-      $this->password = $password;
-      $this->name = $name;
-      $this->surname = $surname;
-      $this->date_of_birth = $date_of_birth;
-      $this->account_type = $account_type;
-      $this->discount_access = $discount_access;
-      $this->free_shipping = $free_shipping;
-    }
 
     public function setDiscountAccess($discount_access) {
       $this->discount_access = $discount_access;
