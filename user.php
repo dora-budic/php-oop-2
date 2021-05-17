@@ -1,6 +1,11 @@
 <?php
 
+  require_once './creditCard.php'
+
+
   class User {
+    use CreditCard;
+
     private $username;
     private $password;
     private $name;
@@ -9,13 +14,16 @@
     private $account_type = 'basic';
     private $products = [];
 
-    public function __construct($username,$password,$name,$surname,$date_of_birth,$account_type) {
+    public function __construct($username,$password,$name,$surname,$date_of_birth,$account_type,$card_number,$expiration_date,$cvc) {
       $this->username = $username;
       $this->password = $password;
       $this->name = $name;
       $this->surname = $surname;
       $this->date_of_birth = $date_of_birth;
       $this->account_type = $account_type;
+      $this->setCardNumber($card_number);
+      $this->setExpirationDate($expiration_date);
+      $this->setCvc($cvc);
     }
 
     public function setUsername($username) {
